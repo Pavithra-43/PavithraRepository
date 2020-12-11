@@ -1,0 +1,19 @@
+package com.cg.onlineshopping.controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	
+	@GetMapping("/home")
+	public ResponseEntity<String> sayHi()
+	{
+		String str="Welcome to Spring Boot!!!";
+		return new ResponseEntity<String>(str,HttpStatus.OK);
+	}
+	
+	
+
+}
