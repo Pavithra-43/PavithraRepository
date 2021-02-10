@@ -1,4 +1,4 @@
-package com.cg.onlineshopping.Service;
+package com.cg.onlineshopping.service;
 
 import java.util.List;
 
@@ -22,11 +22,18 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Product updateProduct(Product product) {
-		Product updateProduct=productRepository.findById(product.getProductId()).orElse(null);
+	public Product updateProduct(long productId,Product product) {
+		Product updateProduct=productRepository.findById(productId).orElse(null);
 		if(updateProduct!=null)
 		{
-			return productRepository.save(product);
+			updateProduct.setProductName(product.getProductName());
+			updateProduct.setProductCategory(product.getProductCategory());
+			updateProduct.setProductBrand(product.getProductBrand());
+			updateProduct.setAvailability(product.getAvailability());
+			updateProduct.setDescription(product.getDescription());
+			updateProduct.setUnitPrice(product.getUnitPrice());
+			
+			return productRepository.save(updateProduct);
 		}
 		else {
 			throw new ProductIdNotFoundException(UtilityClass.PRODUCT_NOT_FOUND+" : "+product.getProductId());
@@ -85,8 +92,18 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<Product> getAllproductsByCategory(String productCategory) {
-		List<Product> allProducts= productRepository.findByProductCategory(productCategory);
+	public List<Product> getAllCosmetics(String productCategory) {
+		List<Product> allProducts= productRepository.findAllCosmetics(productCategory);
+		if(allProducts.isEmpty())
+		{
+			throw new OSException(UtilityClass.NO_RESULT+" : "+productCategory);
+		}
+		return allProducts;
+	}
+
+	@Override
+	public List<Product> getAllAccessoriess(String productCategory) {
+		List<Product> allProducts= productRepository.findAllCosmetics(productCategory);
 		if(allProducts.isEmpty())
 		{
 			throw new OSException(UtilityClass.NO_RESULT+" : "+productCategory);

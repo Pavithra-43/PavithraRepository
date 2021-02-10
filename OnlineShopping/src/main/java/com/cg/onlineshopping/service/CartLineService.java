@@ -1,4 +1,4 @@
-package com.cg.onlineshopping.Service;
+package com.cg.onlineshopping.service;
 import java.util.List;
 
 import com.cg.onlineshopping.entity.CartLine;

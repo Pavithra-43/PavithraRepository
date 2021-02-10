@@ -1,4 +1,4 @@
-package com.cg.onlineshopping.Service;
+package com.cg.onlineshopping.service;
 
 import java.util.*;
 import com.cg.onlineshopping.entity.WishList;

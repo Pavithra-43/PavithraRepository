@@ -1,9 +1,8 @@
-package com.cg.onlineshopping.Service;
+package com.cg.onlineshopping.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.cg.onlineshopping.entity.Admin;
+import com.cg.onlineshopping.entity.AdminTable;
 import com.cg.onlineshopping.exception.InvalidUserException;
 import com.cg.onlineshopping.repository.AdminJpaRepository;
 import com.cg.onlineshopping.utility.UtilityClass;
@@ -15,13 +14,13 @@ public class AdminServiceImpl implements AdminService{
 	AdminJpaRepository adminRepository;
 
 	@Override
-	public Admin createAdminPassword(Admin admin) {
+	public AdminTable createAdminPassword(AdminTable admin) {
 		return adminRepository.save(admin);
 	}
 
 	@Override
-	public Admin updatePassword(Admin admin) {
-		Admin admin1=adminRepository.findById(admin.getAdminId()).orElse(null);
+	public AdminTable updatePassword(AdminTable admin) {
+		AdminTable admin1=adminRepository.findById(admin.getAdminId()).orElse(null);
 		if(admin1==null) {
 			throw new InvalidUserException(UtilityClass.INVALID_DATA+" : " +admin.getAdminId() );
 		}
@@ -29,8 +28,8 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public boolean validateAdmin(String role, String password) {
-		Admin admin=adminRepository.findByRole(role);
+	public boolean validateAdmin(String username, String password) {
+		AdminTable admin=adminRepository.findByUsername(username);
 		if(admin.getPassword().equals(password))
 		{
 			return true;

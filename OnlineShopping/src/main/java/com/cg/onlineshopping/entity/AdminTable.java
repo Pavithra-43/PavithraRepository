@@ -18,7 +18,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Admin implements Serializable{
+public class AdminTable implements Serializable{
 
 	/**
 	 * 
@@ -28,8 +28,8 @@ public class Admin implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long adminId;
-	@Column(name="admin_role")
-	private String role;
+	@Column(name="username")
+	private String username;
 	@Column(name="admin_password")
 	private String password;
 

@@ -7,10 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 import com.cg.onlineshopping.entity.Address;
-import com.cg.onlineshopping.Service.AddressService;
 
 @SpringBootTest
-public class AddressServiceTest {
+ class AddressServiceTest {
 	
 	@Autowired
 	AddressService service;

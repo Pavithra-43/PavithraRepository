@@ -1,4 +1,4 @@
-package com.cg.onlineshopping.Service;
+package com.cg.onlineshopping.service;
 
 import java.util.List;
 
@@ -103,11 +103,11 @@ public class CustomerServiceImpl implements CustomerService
 	}
 
 	@Override
-	public boolean validateCustomer(String username, String password) {
+	public Customer validateCustomer(String username, String password) {
 		Customer customer=customerRepository.findByUsername(username);
 		if(customer.getPassword().equals(password))
 		{
-			return true;
+			return customer;
 		}
 		else {
 			throw new InvalidUserException(UtilityClass.INVALID_DATA);

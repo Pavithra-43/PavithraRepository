@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.cg.onlineshopping.Service.AdminService;
-import com.cg.onlineshopping.entity.Admin;
+import com.cg.onlineshopping.entity.AdminTable;
 import com.cg.onlineshopping.exception.InvalidUserException;
+import com.cg.onlineshopping.service.AdminService;
 import com.cg.onlineshopping.utility.UtilityClass;
 
 @RestController
@@ -23,17 +23,17 @@ public class AdminController {
 	AdminService adminService;
 	
 	@PostMapping("")
-	public ResponseEntity<Admin> addAdmin(@RequestBody Admin admin)
+	public ResponseEntity<AdminTable> addAdmin(@RequestBody AdminTable admin)
 	{
-		Admin admin1=adminService.createAdminPassword(admin);
-		return new ResponseEntity<Admin>(admin1,HttpStatus.OK);
+		AdminTable admin1=adminService.createAdminPassword(admin);
+		return new ResponseEntity<>(admin1,HttpStatus.OK);
 		
 	}
 	@PutMapping("")
-	public ResponseEntity<Admin> updateAdmin(@RequestBody Admin admin)
+	public ResponseEntity<AdminTable> updateAdmin(@RequestBody AdminTable admin)
 	{
-		Admin admin1=adminService.updatePassword(admin);
-		return new ResponseEntity<Admin>(admin1,HttpStatus.OK);
+		AdminTable admin1=adminService.updatePassword(admin);
+		return new ResponseEntity<>(admin1,HttpStatus.OK);
 		
 	}
 	
@@ -43,7 +43,7 @@ public class AdminController {
 		boolean isValid=adminService.validateAdmin(role, password);
 		if(isValid)
 		{
-			return new ResponseEntity<String>("Welcome Admin",HttpStatus.OK);
+			return new ResponseEntity<>("Welcome Admin",HttpStatus.OK);
 		}
 		else {
 			throw new InvalidUserException(UtilityClass.INVALID_DATA);

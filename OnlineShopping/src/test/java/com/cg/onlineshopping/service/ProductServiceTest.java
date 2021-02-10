@@ -5,16 +5,12 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.cg.onlineshopping.Service.ProductService;
 import com.cg.onlineshopping.entity.Product;
-
 @SpringBootTest
 class ProductServiceTest {
 
 	@Autowired
 	ProductService service;
-
-
 	@Test
 	void addTest() {
 		Product product = new Product("television", "home appliances", "samsung", 50000.10, "LED", "In stock");
@@ -22,16 +18,16 @@ class ProductServiceTest {
 		assertEquals("television", product.getProductName());
 	} 
 
-	@Test
-	void updateTest() {
-		Product product = new Product("cooler", "home appliances", "samsung", 80000.10, "Good quality", "In stock");
-		product=service.addProduct(product);
-		long id=product.getProductId();
-		Product newProduct = new Product(id, "cooler", "home appliances", "sony", 90000.80, "Good quality", "In stock");
-	    newProduct=service.updateProduct(newProduct);
-		assertEquals(90000.80, newProduct.getUnitPrice());
-
-	}
+//	@Test
+//	void updateTest() {
+//		Product product = new Product("cooler", "home appliances", "samsung", 80000.10, "Good quality", "In stock");
+//		product=service.addProduct(product);
+//		long id=product.getProductId();
+//		Product newProduct = new Product(id, "cooler", "home appliances", "sony", 90000.80, "Good quality", "In stock");
+//	    newProduct=service.updateProduct(newProduct);
+//		assertEquals(90000.80, newProduct.getUnitPrice());
+//
+//	}
 
 	@Test
 	void deleteProduct() {
@@ -84,14 +80,14 @@ class ProductServiceTest {
 		assertTrue(!products.isEmpty());
 	}
 
-	@Test
-	void getProductsByCategory() {
-		Product product1 = new Product("mixer", "home appliances", "preethi", 3100.50, "good quality", "In stock");
-		service.addProduct(product1);
-		Product product2 = new Product("fridge", "home appliances", "lg", 75000.30, "emi available", "In stock");
-		service.addProduct(product2);
-		List<Product> products = service.getAllproductsByCategory("home appliances");
-		assertTrue(!products.isEmpty());
-	}
+//	@Test
+//	void getProductsByCategory() {
+//		Product product1 = new Product("mixer", "home appliances", "preethi", 3100.50, "good quality", "In stock");
+//		service.addProduct(product1);
+//		Product product2 = new Product("fridge", "home appliances", "lg", 75000.30, "emi available", "In stock");
+//		service.addProduct(product2);
+//		List<Product> products = service.getAllproductsByCategory("home appliances");
+//		assertTrue(!products.isEmpty());
+//	}
 
 }

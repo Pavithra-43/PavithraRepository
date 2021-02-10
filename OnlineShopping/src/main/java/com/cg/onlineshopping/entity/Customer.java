@@ -64,6 +64,5 @@ public class Customer implements Serializable{
 	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private WishList wishList;
 	
-	
 
 }

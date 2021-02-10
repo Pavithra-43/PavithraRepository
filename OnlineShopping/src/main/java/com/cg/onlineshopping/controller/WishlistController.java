@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.onlineshopping.Service.WishListService;
 import com.cg.onlineshopping.entity.WishList;
+import com.cg.onlineshopping.service.WishListService;
 
 @RestController
 @RequestMapping("/wishlist")
@@ -27,14 +27,14 @@ public class WishlistController {
 	public ResponseEntity<WishList> getProductByWishlistId(@PathVariable("id") long wishlistId)
 	{
 		WishList wproduct=wishListService.getWishListById(wishlistId);
-		return new ResponseEntity<WishList>(wproduct,HttpStatus.OK);
+		return new ResponseEntity<>(wproduct,HttpStatus.OK);
 	}
 	
 	@GetMapping("")
 	public ResponseEntity<List<WishList>> getAllWishlist()
 	{
 		List<WishList> allProducts=wishListService.getAllWishlist();
-		return new ResponseEntity<List<WishList>>(allProducts,HttpStatus.OK);
+		return new ResponseEntity<>(allProducts,HttpStatus.OK);
 	}
 	
 	@PostMapping("")
@@ -42,21 +42,21 @@ public class WishlistController {
 	{
 		WishList wishlist=wishListService.addWishList(wishList);
 		
-		return new ResponseEntity<WishList>(wishlist,HttpStatus.OK);
+		return new ResponseEntity<>(wishlist,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<WishList> deleteWishlist(@PathVariable("id") long wishlistId)
 	{
 		WishList wishlist=wishListService.deleteWishList(wishlistId);
-		return new ResponseEntity<WishList>(wishlist,HttpStatus.OK);
+		return new ResponseEntity<>(wishlist,HttpStatus.OK);
 	}
 	
 	@PutMapping("")
 	public ResponseEntity<WishList> updateWishList(@RequestBody WishList wishList)
 	{
 		WishList wish=wishListService.updateWishList(wishList);
-		return new ResponseEntity<WishList>(wish,HttpStatus.OK);
+		return new ResponseEntity<>(wish,HttpStatus.OK);
 	}
 	
 	

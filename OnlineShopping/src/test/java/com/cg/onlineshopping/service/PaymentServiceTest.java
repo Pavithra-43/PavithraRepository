@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cg.onlineshopping.Service.PaymentService;
 import com.cg.onlineshopping.entity.Payment;
 
 @SpringBootTest
@@ -48,7 +47,7 @@ class PaymentServiceTest {
 		payment.setPaymentType("cod");
 		Payment payment1=service.makePayment(payment);
 		long id=payment1.getPaymentId();
-		Payment newPayment=new Payment(id,"Recceived","Cash On Delivery",null);
+		Payment newPayment=new Payment(id,"cod", "Received", null);
 		newPayment=service.updatePaymentStatus(newPayment);
 		assertEquals("Received",newPayment.getPaymentStatus());
 	}
@@ -59,6 +58,7 @@ class PaymentServiceTest {
 		Payment payment=new Payment();
 		payment.setPaymentStatus("Pending");
 		payment.setPaymentType("Cod");
+		payment=service.makePayment(payment);
 		long id=payment.getPaymentId();
 		Payment viewPayment=service.viewPaymentById(id);
 		assertEquals(id, viewPayment.getPaymentId());

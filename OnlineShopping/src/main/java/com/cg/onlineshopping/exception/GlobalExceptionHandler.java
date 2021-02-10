@@ -14,21 +14,21 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<ExceptionDetails> productNotFoundException(ProductIdNotFoundException ex, WebRequest request)
 	{
 		ExceptionDetails details=new ExceptionDetails(new Date(), ex.getMessage(), request.getDescription(false));
-		return new ResponseEntity<ExceptionDetails>(details, HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(details, HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(InvalidUserException.class)
 	public ResponseEntity<ExceptionDetails> customerNotFoundException(InvalidUserException ex, WebRequest request)
 	{
 		ExceptionDetails details=new ExceptionDetails(new Date(), ex.getMessage(), request.getDescription(false));
-		return new ResponseEntity<ExceptionDetails>(details, HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(details, HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(OSException.class)
 	public ResponseEntity<ExceptionDetails> otherException(OSException ex, WebRequest request)
 	{
 		ExceptionDetails details=new ExceptionDetails(new Date(), ex.getMessage(), request.getDescription(false));
-		return new ResponseEntity<ExceptionDetails>(details, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<>(details, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 

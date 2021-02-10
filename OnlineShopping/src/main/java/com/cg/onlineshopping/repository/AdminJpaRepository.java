@@ -1,11 +1,10 @@
 package com.cg.onlineshopping.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.cg.onlineshopping.entity.AdminTable;
 
-import com.cg.onlineshopping.entity.Admin;
-
-public interface AdminJpaRepository extends JpaRepository<Admin, Long>{
+public interface AdminJpaRepository extends JpaRepository<AdminTable, Long>{
 	
-	public Admin findByRole(String role);
+	public AdminTable findByUsername(String username);
 
 }

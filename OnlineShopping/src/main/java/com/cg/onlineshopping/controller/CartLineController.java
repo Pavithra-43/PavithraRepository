@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.onlineshopping.Service.CartLineService;
 import com.cg.onlineshopping.entity.CartLine;
+import com.cg.onlineshopping.service.CartLineService;
 
 
 
@@ -29,21 +29,21 @@ public class CartLineController {
 	public ResponseEntity<List<CartLine>> getAllCartLine()
 	{
 		List<CartLine> allCart=cartLineService.getAllCartLine();
-		return new ResponseEntity<List<CartLine>>(allCart, HttpStatus.OK);
+		return new ResponseEntity<>(allCart, HttpStatus.OK);
 	}
 	
 	@GetMapping("{id}")
 	public ResponseEntity<CartLine> getCartById (@PathVariable("id") long CartId)
 	{
 		CartLine cartLine=cartLineService.getCartById(CartId);
-		return new ResponseEntity<CartLine>(cartLine,HttpStatus.OK);
+		return new ResponseEntity<>(cartLine,HttpStatus.OK);
 	}
 	
 	@PutMapping("")
 	public ResponseEntity<CartLine> updateCartLine(@RequestBody CartLine cartLine)
 	{
 		CartLine cart=cartLineService.updateCartLine(cartLine);
-		return new ResponseEntity<CartLine>(cart,HttpStatus.OK);
+		return new ResponseEntity<>(cart,HttpStatus.OK);
 		
 	}
 	
@@ -52,7 +52,7 @@ public class CartLineController {
 	public ResponseEntity<CartLine> createCart(@RequestBody CartLine cartLine)
 	{
 		CartLine cart=cartLineService.createNewCart(cartLine);
-		return new ResponseEntity<CartLine>(cart,HttpStatus.OK);
+		return new ResponseEntity<>(cart,HttpStatus.OK);
 		
 	}
 	
@@ -60,7 +60,7 @@ public class CartLineController {
 	public ResponseEntity<String> deleteCartLine(@PathVariable long cartId)
 	{
 		String result=cartLineService.deleteCartLine(cartId);
-		return new ResponseEntity<String>(result,HttpStatus.OK);
+		return new ResponseEntity<>(result,HttpStatus.OK);
 	}
 			
 }

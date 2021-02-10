@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.onlineshopping.Service.PaymentService;
 import com.cg.onlineshopping.entity.Payment;
+import com.cg.onlineshopping.service.PaymentService;
 @RestController
 @RequestMapping("/payment")
 public class PaymentController {
@@ -27,33 +27,33 @@ public class PaymentController {
 	public ResponseEntity<Payment> addPaymentDetails(@RequestBody Payment payment)
 	{
 		Payment makePayment=paymentService.makePayment(payment);
-		return new ResponseEntity<Payment>(makePayment,HttpStatus.OK);
+		return new ResponseEntity<>(makePayment,HttpStatus.OK);
 	}
 	
 	@PutMapping("")
 	public ResponseEntity<Payment> updatePaymentStatus(@RequestBody Payment payment)
 	{
 		Payment newPayment=paymentService.updatePaymentStatus(payment);
-		return new ResponseEntity<Payment>(newPayment,HttpStatus.OK);
+		return new ResponseEntity<>(newPayment,HttpStatus.OK);
 	}
 	
 	@GetMapping("{id}")
 	public ResponseEntity<Payment> viewPaymentById(@PathVariable("id") long paymentId)
 	{
 		Payment viewPayment=paymentService.viewPaymentById(paymentId);
-		return new ResponseEntity<Payment>(viewPayment,HttpStatus.OK);
+		return new ResponseEntity<>(viewPayment,HttpStatus.OK);
 	}
 	
 	@GetMapping("")
 	public ResponseEntity<List<Payment>> viewAllPayment() {
 		List<Payment> allPayment=paymentService.viewAllPayment();
-		return new ResponseEntity<List<Payment>>(allPayment,HttpStatus.OK);
+		return new ResponseEntity<>(allPayment,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> cancelPayment(@PathVariable("id") long paymentId)
 	{
 		String result=paymentService.cancelPayment(paymentId);
-		return new ResponseEntity<String>(result,HttpStatus.OK);
+		return new ResponseEntity<>(result,HttpStatus.OK);
 		}
 }

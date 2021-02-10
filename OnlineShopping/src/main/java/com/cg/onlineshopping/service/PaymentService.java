@@ -1,4 +1,4 @@
-package com.cg.onlineshopping.Service;
+package com.cg.onlineshopping.service;
 
 import com.cg.onlineshopping.entity.Payment;
 import java.util.List;

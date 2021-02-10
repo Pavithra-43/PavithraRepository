@@ -1,4 +1,4 @@
-package com.cg.onlineshopping.Service;
+package com.cg.onlineshopping.service;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public interface CustomerService {
 	public Customer getCustomerByEmail(String email);
 	public Customer getCustomerByMobile(String mobile);
 	public Customer getCustomerByUsername(String username);
-	public boolean validateCustomer(String username,String password);
+	public Customer validateCustomer(String username,String password);
 	
 
 }

@@ -9,12 +9,10 @@ public class OSException extends RuntimeException{
 
 	public OSException() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public OSException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
 	}
 	
 

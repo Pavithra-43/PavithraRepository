@@ -13,11 +13,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cg.onlineshopping.Service.OrderDetailsService;
 import com.cg.onlineshopping.entity.OrderDetails;
 
 @SpringBootTest
-public class OrderDetailsServiceTest {
+ class OrderDetailsServiceTest {
 
 	@Autowired
 	private OrderDetailsService service;
@@ -35,7 +34,7 @@ public class OrderDetailsServiceTest {
 	}
 
 	@Test
-	public void testAdd() {
+	 void testAdd() {
 		order.setOrderDate("9th nov");
 		order.setTotalAmount(500.00);
 		order.setExpectedDeliveryDate("13th nov");
@@ -58,7 +57,7 @@ public class OrderDetailsServiceTest {
 	}
 
 	@Test
-	public void testViewOrder() throws AccountNotFoundException {
+	 void testViewOrder() throws AccountNotFoundException {
 		order.setOrderDate("15th nov");
 		order.setTotalAmount(700.00);
 		order.setExpectedDeliveryDate("18th nov");
@@ -71,7 +70,7 @@ public class OrderDetailsServiceTest {
 	}
 
 	@Test
-	public void testUpdateOrder() throws AccountNotFoundException {
+	 void testUpdateOrder() throws AccountNotFoundException {
 		order.setOrderDate("19th nov");
 		order.setTotalAmount(700.00);
 		order.setExpectedDeliveryDate("20th nov");
